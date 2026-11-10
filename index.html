@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg0:#030712;--bg1:#111827;--card:#1f2937;--chip:#374151;--text:#f9fafb;--muted:#d1d5db;--green:#34d399;--btnbg:#fff;--btntx:#111827;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg0:#fff;--bg1:#f3f4f6;--card:#fff;--chip:#e5e7eb;--text:#111827;--muted:#4b5563;--btnbg:#111827;--btntx:#fff}}
+:root[data-theme="light"]{--bg0:#fff;--bg1:#f3f4f6;--card:#fff;--chip:#e5e7eb;--text:#111827;--muted:#4b5563;--btnbg:#111827;--btntx:#fff}
+:root[data-theme="dark"]{--bg0:#030712;--bg1:#111827;--card:#1f2937;--chip:#374151;--text:#f9fafb;--muted:#d1d5db;--btnbg:#fff;--btntx:#111827}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg0);color:var(--text);line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.dark0{background:var(--bg0)}.dark1{background:var(--bg1)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg0)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:700;font-size:26px;text-decoration:none}
+.links{display:flex;gap:24px;align-items:center;font-size:15px;font-weight:500}
+.links a{text-decoration:none}
+.sep{width:1px;height:24px;background:var(--chip)}
+.btn{background:var(--btnbg);color:var(--btntx)!important;padding:8px 16px;border-radius:8px;font-weight:500}
+.theme{background:none;border:0;color:inherit;cursor:pointer;font-size:20px;padding:0}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;padding:96px 0 120px}
+h1{font-size:56px;line-height:1.1;margin:0 0 20px;font-weight:700}
+.hero p{max-width:620px;margin:0 0 32px;color:var(--muted)}
+.meta{display:flex;align-items:center;gap:10px;color:var(--muted);margin:8px 0}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);margin:0 4px}
+.soc{display:flex;gap:18px;margin-top:36px}
+.soc a{width:22px;height:22px;display:block}
+.soc svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.6}
+.frame{position:relative;width:260px;height:300px;justify-self:end}
+.frame::after{content:"";position:absolute;inset:40px -40px -40px 40px;background:var(--chip);z-index:0}
+.frame .ph{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+.tag{display:table;margin:0 auto 24px;background:var(--chip);border-radius:999px;padding:4px 20px;font-size:14px;font-weight:500}
+.about{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
+.about .frame{width:380px;height:460px;justify-self:start}
+.about .frame::after{inset:40px 40px -40px -40px}
+h2{font-size:28px;margin:0 0 24px}
+.about p{color:var(--muted);font-size:15px;margin:0 0 18px}
+.about ul{display:grid;grid-template-columns:1fr 1fr;color:var(--muted);font-size:15px;padding-left:20px;margin:0 0 18px}
+.lead{text-align:center;font-size:20px;color:var(--muted);margin:0 0 56px}
+.skills{display:grid;grid-template-columns:repeat(8,1fr);gap:40px 16px;text-align:center;font-size:15px;color:var(--muted)}
+.ico{width:64px;height:64px;margin:0 auto 8px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:20px;color:#111;background:var(--chip);color:var(--text)}
+.job{background:var(--card);border-radius:12px;padding:32px;display:grid;grid-template-columns:200px 1fr auto;gap:24px;margin:0 auto 48px;max-width:880px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.job .co{color:#22c55e;font-weight:700;font-size:26px}
+.job h3{margin:0 0 12px;font-size:18px}
+.job ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.job time{font-size:14px;color:var(--muted);white-space:nowrap}
+.proj{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border-radius:16px;overflow:hidden;margin-bottom:48px}
+.proj.rev .shot{order:2}
+.shot{background:var(--chip);padding:48px 32px;display:grid;place-items:center}
+.shot div{width:100%;aspect-ratio:16/10;border-radius:12px;background:linear-gradient(#f5f3ff 0 60%,#2e2350 60%);display:flex;flex-direction:column;justify-content:center;padding:0 12%;color:#4c3f8f;font-weight:600;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.shot span{color:#f0627f}
+.info{padding:48px 40px}
+.info h3{font-size:22px;margin:0 0 24px}
+.info p{color:var(--muted);margin:0 0 24px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px 10px;margin-bottom:24px}
+.chips span{background:var(--chip);border-radius:999px;padding:4px 20px;font-size:14px}
+.tests{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.t{background:var(--card);border-radius:12px;padding:40px 28px;text-align:center}
+.av{width:80px;height:80px;border-radius:50%;background:#9ca3af;margin:0 auto 24px;display:grid;place-items:center;font-size:36px}
+.t p{color:var(--muted);margin:0 0 24px}
+.t b{display:block;font-size:20px}.t small{color:var(--muted)}
+.contact{text-align:center;background:var(--bg0)}
+.contact .lead{font-size:20px;max-width:760px;margin:0 auto 48px}
+.big{font-size:40px;font-weight:700;margin:10px 0;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;word-break:break-all}
+.big button{background:none;border:0;color:inherit;cursor:pointer;font-size:26px}
+.plat{margin:48px 0 12px;color:var(--muted)}
+.contact .soc{justify-content:center;margin-top:12px}
+footer{background:var(--bg1);text-align:center;padding:32px 0;color:var(--muted);font-size:15px}
+footer .h{color:#ef4444}
+@media(max-width:900px){
+ h1{font-size:40px}.hero,.about,.proj,.tests,.job{grid-template-columns:1fr}
+ .frame,.about .frame{justify-self:center;width:min(280px,80%);height:auto;aspect-ratio:.87}
+ .proj.rev .shot{order:0}.skills{grid-template-columns:repeat(4,1fr)}.links a:not(.btn){display:none}.big{font-size:22px}
+ section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+ <a class="logo" href="#top">&lt;YN /&gt;</a>
+ <div class="links"><a href="#about">About</a><a href="#work">Work</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a><span class="sep"></span>
+ <button class="theme" id="theme" aria-label="Toggle theme">☾</button><a class="btn" href="#">Download CV</a></div>
+</nav></div></header>
+
+<section class="dark0" id="top" style="padding:0"><div class="wrap hero">
+ <div>
+  <h1>Hi, I’m Your Name 👋</h1>
+  <p>I’m a full stack developer (React.js &amp; Node.js) with a focus on creating (and occasionally designing) exceptional digital experiences that are fast, accessible, visually appealing, and responsive.</p>
+  <div class="meta">📍 City, Country</div>
+  <div class="meta"><span class="dot"></span> Available for new projects</div>
+  <div class="soc">
+   <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2m12 4v-3.5a3 3 0 0 0-1-2.5c3 0 6-1.5 6-5a4 4 0 0 0-1-3 4 4 0 0 0 0-3s-1 0-3 1.5a10 10 0 0 0-5 0C8 4 7 4 7 4a4 4 0 0 0 0 3 4 4 0 0 0-1 3c0 3.5 3 5 6 5a3 3 0 0 0-1 2.5V21"/></svg></a>
+   <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22 5a8 8 0 0 1-2 .6A3.500 3.500 0 0 0 21.500 3.600a7 7 0 0 1-2.200.9 3.500 3.500 0 0 0-6 3.200A10 10 0 0 1 6 4a3.500 3.500 0 0 0 1 4.700 3.500 3.500 0 0 1-1.600-.4v.1a3.500 3.500 0 0 0 2.800 3.400 3.500 3.500 0 0 1-1.600.1 3.500 3.500 0 0 0 3.300 2.400A7 7 0 0 1 3 16.500 10 10 0 0 0 8.400 18c6.500 0 10-5.400 10-10v-.5A7 7 0 0 0 22 5z"/></svg></a>
+   <a href="#" aria-label="Figma"><svg viewBox="0 0 24 24"><path d="M8 2h4a3 3 0 0 1 0 6H8zM12 2h0M8 8h4a3 3 0 1 1 0 6H8zM8 14h4v1a3 3 0 1 1-4-2.800M8 2a3 3 0 0 0 0 6M8 8a3 3 0 0 0 0 6"/></svg></a>
+  </div>
+ </div>
+ <div class="frame"><img class="ph" id="photo-hero" alt="Photo" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 115'><rect width='100' height='115' fill='%239ca3af'/><circle cx='50' cy='42' r='20' fill='%23374151'/><path d='M10 115c0-30 20-42 40-42s40 12 40 42z' fill='%23374151'/></svg>"></div>
+</div></section>
+
+<section class="dark1" id="about"><div class="wrap">
+ <span class="tag">About me</span>
+ <div class="about">
+  <div class="frame"><img class="ph" id="photo-about" alt="Photo" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 121'><rect width='100' height='121' fill='%239ca3af'/><circle cx='50' cy='46' r='21' fill='%23374151'/><path d='M8 121c0-32 20-44 42-44s42 12 42 44z' fill='%23374151'/></svg>"></div>
+  <div>
+   <h2>Curious about me? Here you have it:</h2>
+   <p>I’m a passionate developer who specializes in full stack development (React.js &amp; Node.js). User experience, pixel-perfect design, and writing clear, readable, highly performant code matter to me.</p>
+   <p>I began my journey as a web developer several years ago and have continued to grow, taking on new challenges and learning the latest technologies along the way. Today I build modern web applications with Next.js, TypeScript, Nest.js, Tailwind CSS, Supabase and more.</p>
+   <p>I enjoy working on products end to end, from ideation all the way to development.</p>
+   <p>Finally, some quick bits about me.</p>
+   <ul><li>B.E. in Computer Engineering</li><li>Avid learner</li><li>Full time freelancer</li><li>Aspiring indie hacker</li></ul>
+   <p>One last thing, I’m available for freelance work, so feel free to reach out and say hello! I promise I don’t bite 😉</p>
+  </div>
+ </div>
+</div></section>
+
+<section class="dark0"><div class="wrap">
+ <span class="tag">Skills</span>
+ <p class="lead" style="margin-bottom:56px">The skills, tools and technologies I am really good at:</p>
+ <div class="skills" id="skills"></div>
+</div></section>
+
+<section class="dark1"><div class="wrap">
+ <span class="tag">Experience</span>
+ <p class="lead">Here is a quick summary of my most recent experiences:</p>
+ <div class="job"><div class="co">company</div><div><h3>Sr. Frontend Developer</h3><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Ut pretium arcu et massa semper, id fringilla leo semper.</li><li>Sed quis justo ac magna.</li><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li></ul></div><time>Nov 2021 - Present</time></div>
+ <div class="job"><div class="co">company</div><div><h3>Team Lead</h3><ul><li>Sed quis justo ac magna.</li><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Sed quis justo ac magna.</li><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li></ul></div><time>Jul 2017 - Oct 2021</time></div>
+ <div class="job" style="margin-bottom:0"><div class="co">company</div><div><h3>Full Stack Developer</h3><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li></ul></div><time>Dec 2015 - May 2017</time></div>
+</div></section>
+
+<section class="dark0" id="work"><div class="wrap">
+ <span class="tag">Work</span>
+ <p class="lead">Some of the noteworthy projects I have built:</p>
+ <div class="proj"><div class="shot"><div>Connecting your product<br>with <span>open finance</span></div></div>
+  <div class="info"><h3>Project One</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+  <div class="chips"><span>React</span><span>Next.js</span><span>Typescript</span><span>Nest.js</span><span>PostgreSQL</span><span>Tailwindcss</span><span>Figma</span><span>Cypress</span><span>Storybook</span><span>Git</span></div>↗</div></div>
+ <div class="proj rev"><div class="shot"><div>Connecting your product<br>with <span>open finance</span></div></div>
+  <div class="info"><h3>Project Two</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+  <div class="chips"><span>React</span><span>Next.js</span><span>Typescript</span><span>Nest.js</span><span>PostgreSQL</span><span>Tailwindcss</span><span>Figma</span><span>Cypress</span><span>Storybook</span><span>Git</span></div>↗</div></div>
+</div></section>
+
+<section class="dark1" id="testimonials"><div class="wrap">
+ <span class="tag">Testimonials</span>
+ <p class="lead">Nice things people have said about me:</p>
+ <div class="tests">
+  <div class="t"><div class="av">👤</div><p>“Job well done! I am really impressed. He is very very good at what he does. I would recommend and will rehire in the future for Frontend development.”</p><b>John Doe</b><small>Founder - xyz.com</small></div>
+  <div class="t"><div class="av">👤</div><p>“Great guy, highly recommended for any complex front-end development job! His skills are top-notch and he will be an amazing addition to any team.”</p><b>John Doe</b><small>Founder - abc.com</small></div>
+  <div class="t"><div class="av">👤</div><p>“Extremely easy and pleasant to work with, and he truly cares about the project being a success. High level of knowledge, and able to work on my MERN stack application without any issues.”</p><b>John Doe</b><small>Freelancer</small></div>
+ </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+ <span class="tag">Get in touch</span>
+ <p class="lead">What’s next? Feel free to reach out to me if you’re looking for a developer, have a query, or simply want to connect.</p>
+ <div class="big">✉ <span>you@example.com</span><button data-c="you@example.com" aria-label="Copy email">⧉</button></div>
+ <div class="big">☎ <span>+00 000 000 0000</span><button data-c="+00 000 000 0000" aria-label="Copy phone">⧉</button></div>
+ <p class="plat">You may also find me on these platforms!</p>
+ <div class="soc"><a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2m12 4v-3.5a3 3 0 0 0-1-2.5c3 0 6-1.5 6-5a4 4 0 0 0-1-3 4 4 0 0 0 0-3s-1 0-3 1.5a10 10 0 0 0-5 0C8 4 7 4 7 4a4 4 0 0 0 0 3 4 4 0 0 0-1 3c0 3.5 3 5 6 5a3 3 0 0 0-1 2.5V21"/></svg></a><a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22 5a8 8 0 0 1-2 .6A3.500 3.500 0 0 0 21.500 3.600a7 7 0 0 1-2.200.9 3.500 3.500 0 0 0-6 3.200A10 10 0 0 1 6 4a3.500 3.500 0 0 0 1 4.700 3.500 3.500 0 0 1-1.600-.4v.1a3.500 3.500 0 0 0 2.800 3.400 3.500 3.500 0 0 1-1.600.1 3.500 3.500 0 0 0 3.300 2.400A7 7 0 0 1 3 16.500 10 10 0 0 0 8.400 18c6.500 0 10-5.400 10-10v-.5A7 7 0 0 0 22 5z"/></svg></a></div>
+</div></section>
+<footer>© 2026 | Designed and coded with <span class="h">♥</span> by Your Name</footer>
+
+<script>
+var PHOTO_HERO="",PHOTO_ABOUT=""; /* вставьте ссылку или data:image... на свои фото */
+if(PHOTO_HERO)document.getElementById("photo-hero").src=PHOTO_HERO;
+if(PHOTO_ABOUT)document.getElementById("photo-about").src=PHOTO_ABOUT;
+var s=[["JS","Javascript"],["TS","Typescript"],["⚛","React"],["N","Next.js"],["JS","Node.js"],["ex","Express.js"],["N","Nest.js"],["⚡","Socket.io"],["🐘","PostgreSQL"],["🍃","MongoDB"],["S","Sass/Scss"],["~","Tailwindcss"],["F","Figma"],["cy","Cypress"],["S","Storybook"],["⑂","Git"]];
+document.getElementById("skills").innerHTML=s.map(function(x){return '<div><div class="ico">'+x[0]+'</div>'+x[1]+'</div>'}).join("");
+document.getElementById("theme").onclick=function(){var r=document.documentElement,d=r.getAttribute("data-theme")!=="light";r.setAttribute("data-theme",d?"light":"dark");this.textContent=d?"☀":"☾"};
+document.querySelectorAll("[data-c]").forEach(function(b){b.onclick=function(){try{navigator.clipboard.writeText(b.dataset.c);b.textContent="✓";setTimeout(function(){b.textContent="⧉"},1200)}catch(e){}}});
+</script>
+</body>
+</html>
